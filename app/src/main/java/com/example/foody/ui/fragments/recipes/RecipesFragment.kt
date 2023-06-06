@@ -32,7 +32,7 @@ class RecipesFragment : Fragment() {
 
     private val args by navArgs<RecipesFragmentArgs>()
 
-    private var _binding: FragmentRecipesBinding? = null
+    private var _binding: FragmentRecipesBinding? = null    //This is automatically created when we converted the layout from constraint to databinding layout
     private val binding get() = _binding!!
 
     private lateinit var mainViewModel: MainViewModel
@@ -149,6 +149,6 @@ class RecipesFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        _binding = null // TO avoid memory leaks
     }
 }

@@ -13,7 +13,7 @@ class LocalDataSource @Inject constructor(
         return recipesDao.readRecipes()
     }
 
-    suspend fun insertRecipes(recipesEntity: RecipesEntity) {
+    suspend fun insertRecipes(recipesEntity: RecipesEntity) {   //YSR: Our data will have only one row
         recipesDao.insertRecipes(recipesEntity)
     }
 

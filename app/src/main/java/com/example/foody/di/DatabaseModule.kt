@@ -3,7 +3,7 @@ package com.example.foody.di
 import android.content.Context
 import androidx.room.Room
 import com.example.foody.data.database.RecipesDatabase
-import com.example.foody.util.Constants.Companion.DATABASE_NAME
+import com.example.foody.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,11 +22,11 @@ object DatabaseModule {
     ) = Room.databaseBuilder(
         context,
         RecipesDatabase::class.java,
-        DATABASE_NAME
+        Constants.DATABASE_NAME
     ).build()
 
     @Singleton
     @Provides
-    fun provideDao(database: RecipesDatabase) = database.recipesDao()
+    fun provideDao(database: RecipesDatabase) = database.recipesDao()   //Will inject this Dao into other classes
 
 }
